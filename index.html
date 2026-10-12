@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl" class="scroll-smooth">
+<html lang="he" dir="rtl" data-lang="he" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dark Mode Workspace | חבילת תחנת עבודה ארגונומית</title>
-
-  <!-- Inline Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230B0F17%22/><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-
-  <!-- SEO & Open Graph -->
   <meta name="description" content="חבילת תחנת עבודה ארגונומית: תאורת מסך Baseus, מעמד אלומיניום וכרית מתיחה EVA. מחיר השקה 399 ₪ כולל משלוח ל-50 הרוכשים הראשונים.">
   <link rel="canonical" href="https://barakkeynan.github.io/workspace-bundle/">
   <meta property="og:title" content="שקט ויזואלי. מקסימום מיקוד. | Dark Mode Workspace">
@@ -16,111 +12,103 @@
   <meta property="og:image" content="https://barakkeynan.github.io/workspace-bundle/20261012_095635.jpg">
   <meta property="og:url" content="https://barakkeynan.github.io/workspace-bundle/">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="he_IL">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "חבילת Dark Mode Workspace",
-    "image": "https://barakkeynan.github.io/workspace-bundle/20261012_095635.jpg",
-    "description": "חבילה הכוללת תאורת מסך Baseus, מעמד אלומיניום וכרית מתיחה EVA.",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://barakkeynan.github.io/workspace-bundle/",
-      "priceCurrency": "ILS",
-      "price": "399",
-      "availability": "https://schema.org/PreOrder",
-      "seller": { "@type": "Organization", "name": "ברק הפקה ותוכן" }
-    }
-  }
+  <!-- מגדיר שפה לפני הציור הראשון, כדי למנוע הבהוב -->
+  <script>
+    (function () {
+      var l = 'he';
+      try { l = localStorage.getItem('lang') || 'he'; } catch (e) {}
+      var d = document.documentElement;
+      d.setAttribute('data-lang', l);
+      d.lang = l;
+      d.dir = l === 'en' ? 'ltr' : 'rtl';
+    })();
   </script>
 
-  <!-- Tailwind CSS CDN (מתאים להשקה קטנה; לפרודקשן מומלץ לקמפל) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Heebo', 'sans-serif'] },
-          colors: {
-            brand: {
-              bg: '#0B0F17',
-              card: '#161C28',
-              border: '#2A3447',
-              accent: '#3B82F6',
-              accentHover: '#2563EB',
-              textMuted: '#94A3B8'
-            }
-          }
-        }
-      }
-    }
+    tailwind.config = { theme: { extend: {
+      fontFamily: { sans: ['Heebo', 'sans-serif'] },
+      colors: { brand: { bg: '#0B0F17', card: '#161C28', border: '#2A3447', accent: '#3B82F6', accentHover: '#2563EB', textMuted: '#94A3B8' } }
+    } } }
   </script>
-</head>
-<body class="bg-brand-bg text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-accent selection:text-white pb-20 md:pb-0">
 
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:right-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded">
-    דלג לתוכן הראשי
+  <style>
+    html[data-lang="he"] .en { display: none !important; }
+    html[data-lang="en"] .he { display: none !important; }
+    #page { transition: opacity .18s ease; }
+    #page.fading { opacity: 0; }
+    @media (prefers-reduced-motion: reduce) { #page { transition: none; } }
+  </style>
+  <style type="text/tailwindcss">
+    @layer components {
+      .card { @apply bg-brand-card border border-brand-border rounded-2xl p-6 space-y-4 hover:border-brand-accent/50 transition-colors; }
+      .imgbox { @apply rounded-xl overflow-hidden border border-brand-border/50 bg-black/40 aspect-[4/3]; }
+      .btn { @apply block w-full text-center bg-brand-accentHover hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-brand-accent/25 focus:ring-2 focus:ring-white focus:outline-none; }
+      .tag { @apply text-xs font-bold text-blue-300 tracking-widest uppercase; }
+      .term { @apply space-y-3 leading-relaxed; }
+    }
+  </style>
+</head>
+<body class="bg-brand-bg text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-accent selection:text-white">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:start-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded">
+    <span class="he">דלג לתוכן הראשי</span><span class="en">Skip to main content</span>
   </a>
 
-  <!-- Header -->
   <header class="w-full border-b border-brand-border/40 py-4 px-6 backdrop-blur-md bg-brand-bg/80 sticky top-0 z-40">
     <div class="max-w-6xl mx-auto flex justify-between items-center gap-4">
       <span class="text-xl font-black tracking-wider text-white uppercase">DARK MODE<span class="text-brand-accent">.</span></span>
-      <nav aria-label="ניווט ראשי" class="flex items-center gap-5 text-sm text-brand-textMuted">
-        <a href="#bundle" class="hover:text-white transition-colors">מה בחבילה</a>
-        <a href="#how" class="hover:text-white transition-colors hidden sm:inline">איך מזמינים</a>
-        <a href="#faq" class="hover:text-white transition-colors hidden sm:inline">שאלות</a>
-        <a href="#terms" class="hover:text-white transition-colors">תקנון</a>
+      <nav class="flex items-center gap-5 text-sm text-brand-textMuted">
+        <a href="#bundle" class="hover:text-white transition-colors"><span class="he">מה בחבילה</span><span class="en">The Bundle</span></a>
+        <a href="#checkout" class="hover:text-white transition-colors"><span class="he">הזמנה</span><span class="en">Pre-Order</span></a>
+        <a href="#terms" class="hover:text-white transition-colors"><span class="he">תקנון</span><span class="en">Terms</span></a>
+        <button id="lang-toggle" type="button" onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border bg-brand-card hover:border-brand-accent text-xs font-bold text-white transition-colors focus:ring-2 focus:ring-white focus:outline-none" aria-label="Switch language / החלף שפה">
+          <span aria-hidden="true">🌐</span><span id="lang-btn-text">EN</span>
+        </button>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="flex-grow">
+  <div id="page" class="flex-grow">
+  <main id="main-content">
 
     <!-- Hero -->
     <section class="max-w-6xl mx-auto px-6 pt-12 pb-16 md:pt-20 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-      <div class="lg:col-span-7 space-y-6 text-right">
-        <div class="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/30 text-blue-300 text-xs font-semibold px-3 py-1.5 rounded-full">
-          <span>מהדורה מוגבלת ל-50 רוכשים ראשונים</span>
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex bg-brand-accent/10 border border-brand-accent/30 text-blue-300 text-xs font-semibold px-3 py-1.5 rounded-full">
+          <span class="he">מהדורה מוגבלת ל-50 רוכשים ראשונים</span><span class="en">Limited edition: first 50 buyers</span>
         </div>
-
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
-          שקט ויזואלי.<br>
-          <span class="text-transparent bg-clip-text bg-gradient-to-l from-slate-100 via-slate-300 to-blue-400">מקסימום מיקוד.</span>
+          <span class="he">שקט ויזואלי.<br>מקסימום מיקוד.</span><span class="en">Visual calm.<br>Maximum focus.</span>
         </h1>
-
         <p class="text-lg sm:text-xl text-brand-textMuted font-light leading-relaxed max-w-2xl">
-          תאורה ממוקדת, הגבהה מדויקת ותמיכה לצוואר. הכול בחבילת השקה אחת שנועדה לסייע ביצירת סביבת עבודה נוחה וממוקדת.
+          <span class="he">תאורה ממוקדת, הגבהה מדויקת ותמיכה לצוואר. הכול בחבילת השקה אחת שנועדה לסייע ביצירת סביבת עבודה נוחה וממוקדת.</span>
+          <span class="en">Focused lighting, precise elevation and neck support. All in one launch bundle designed to help create a comfortable, focused workspace.</span>
         </p>
-
         <div class="pt-4 space-y-3">
-          <a href="https://wa.me/972506770772?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%97%D7%91%D7%99%D7%9C%D7%AA%20%D7%94%D7%94%D7%A9%D7%A7%D7%94%20%D7%91-399%20%E2%82%AA"
-             target="_blank" rel="noopener"
-             class="inline-block w-full sm:w-auto text-center bg-brand-accentHover hover:bg-blue-700 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-200 motion-reduce:transition-none transform hover:-translate-y-0.5 motion-reduce:transform-none shadow-lg shadow-brand-accent/25 focus:ring-2 focus:ring-white focus:outline-none">
-            הזמן מראש בוואטסאפ
+          <a class="wa btn sm:inline-block sm:w-auto sm:px-8 text-lg" href="#" target="_blank" rel="noopener">
+            <span class="he">הזמן מראש בוואטסאפ</span><span class="en">Pre-order via WhatsApp</span>
           </a>
           <div class="text-sm text-brand-textMuted font-medium space-y-1">
-            <p class="text-slate-200 font-semibold">מחיר השקה: 399 ₪ כולל משלוח · 50 יחידות בלבד</p>
-            <p class="text-xs">משלוח צפוי: תוך 14–21 ימי עסקים מאישור ההזמנה והתשלום</p>
+            <p class="text-slate-200 font-semibold"><span class="he">מחיר השקה: 399 ₪ כולל משלוח · 50 יחידות בלבד</span><span class="en">Launch price: ₪399 (ILS) incl. delivery · 50 units only</span></p>
+            <p class="text-xs"><span class="he">משלוח צפוי: תוך 14–21 ימי עסקים מאישור ההזמנה והתשלום</span><span class="en">Estimated delivery: 14–21 business days after order and payment confirmation</span></p>
           </div>
         </div>
       </div>
-
       <div class="lg:col-span-5">
-        <div class="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-card shadow-2xl group">
-          <img src="20261012_095635.jpg" alt="חבילת תחנת העבודה: תאורת מסך, מעמד אלומיניום וכרית מתיחה צווארית" width="600" height="400" fetchpriority="high" class="w-full h-auto object-cover transform group-hover:scale-105 motion-reduce:transform-none transition-transform duration-500">
+        <div class="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-card shadow-2xl">
+          <img src="20261012_095635.jpg" width="600" height="400" fetchpriority="high" class="w-full h-auto object-cover"
+               alt="חבילת תחנת העבודה: תאורת מסך, מעמד אלומיניום וכרית מתיחה צווארית"
+               data-he="חבילת תחנת העבודה: תאורת מסך, מעמד אלומיניום וכרית מתיחה צווארית"
+               data-en="The workspace bundle: monitor light, aluminum stand and neck stretcher">
           <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/80 via-transparent to-transparent"></div>
-          <div class="absolute bottom-4 right-4 bg-brand-bg/90 backdrop-blur border border-brand-border px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300">
-            תחנת עבודה מודרנית מלאה
+          <div class="absolute bottom-4 start-4 bg-brand-bg/90 backdrop-blur border border-brand-border px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300">
+            <span class="he">תחנת עבודה מודרנית מלאה</span><span class="en">A complete modern workstation</span>
           </div>
         </div>
       </div>
@@ -129,207 +117,154 @@
     <!-- Bundle -->
     <section id="bundle" class="border-t border-brand-border/60 bg-brand-card/30 py-20 px-6">
       <div class="max-w-6xl mx-auto space-y-16">
-
         <div class="text-center space-y-3 max-w-2xl mx-auto">
-          <span class="text-xs font-bold text-blue-300 tracking-widest uppercase">The Bundle Experience</span>
-          <h2 class="text-3xl font-bold text-white">שלושת היסודות</h2>
-          <p class="text-brand-textMuted">שלושה מוצרים, חבילה אחת, מחיר אחד.</p>
+          <span class="tag">The Bundle Experience</span>
+          <h2 class="text-3xl font-bold text-white"><span class="he">שלושת היסודות</span><span class="en">The three essentials</span></h2>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-4 hover:border-brand-accent/50 transition-colors">
-            <div class="rounded-xl overflow-hidden border border-brand-border/50 bg-black/40 aspect-[4/3]">
-              <img src="20261012_091107.jpg" alt="מנורת מסך Baseus i-Wok" width="400" height="300" loading="lazy" class="w-full h-full object-cover">
-            </div>
-            <span class="text-xs font-mono text-blue-300">01 · תאורת מסך</span>
+          <div class="card">
+            <div class="imgbox"><img src="20261012_091107.jpg" width="400" height="300" loading="lazy" class="w-full h-full object-cover"
+              alt="מנורת מסך Baseus i-Wok" data-he="מנורת מסך Baseus i-Wok" data-en="Baseus i-Wok monitor light"></div>
+            <span class="text-xs font-mono text-blue-300">01 · <span class="he">תאורת מסך</span><span class="en">Monitor light</span></span>
             <h3 class="text-xl font-bold text-white">Baseus i-Wok</h3>
-            <p class="text-sm font-semibold text-slate-300">תאורה ממוקדת ונעימה לעבודה בשעות החשוכות.</p>
+            <p class="text-sm font-semibold text-slate-300"><span class="he">תאורה ממוקדת ונעימה לעבודה בשעות החשוכות.</span><span class="en">Focused, pleasant light for working after dark.</span></p>
             <p class="text-sm text-brand-textMuted leading-relaxed">
-              תאורה אסימטרית שמכוונת אל המקלדת ושטח העבודה, ומיועדת לסייע בהפחתת השתקפויות מהמסך וסנוור.
-              <br><br>
-              חיבור USB-C פשוט ושליטה רציפה בעוצמת האור.
+              <span class="he">תאורה אסימטרית שמכוונת אל המקלדת ושטח העבודה, ומיועדת לסייע בהפחתת השתקפויות מהמסך וסנוור.<br><br>חיבור USB-C פשוט ושליטה רציפה בעוצמת האור.</span>
+              <span class="en">Asymmetric light aimed at the keyboard and desk surface, designed to help reduce screen reflections and glare.<br><br>Simple USB-C connection and continuous brightness control.</span>
             </p>
           </div>
 
-          <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-4 hover:border-brand-accent/50 transition-colors">
-            <div class="rounded-xl overflow-hidden border border-brand-border/50 bg-black/40 aspect-[4/3]">
-              <img src="20261012_092411.jpg" alt="מעמד אלומיניום מתכוונן Z-Type למחשב נייד" width="400" height="300" loading="lazy" class="w-full h-full object-cover">
-            </div>
-            <span class="text-xs font-mono text-blue-300">02 · מעמד אלומיניום</span>
+          <div class="card">
+            <div class="imgbox"><img src="20261012_092411.jpg" width="400" height="300" loading="lazy" class="w-full h-full object-cover"
+              alt="מעמד אלומיניום מתכוונן Z-Type למחשב נייד" data-he="מעמד אלומיניום מתכוונן Z-Type למחשב נייד" data-en="Adjustable Z-Type aluminum laptop stand"></div>
+            <span class="text-xs font-mono text-blue-300">02 · <span class="he">מעמד אלומיניום</span><span class="en">Aluminum stand</span></span>
             <h3 class="text-xl font-bold text-white">Z-Type Ergonomics</h3>
-            <p class="text-sm font-semibold text-slate-300">הגבהה מדויקת. יציבות מלאה.</p>
+            <p class="text-sm font-semibold text-slate-300"><span class="he">הגבהה מדויקת. יציבות מלאה.</span><span class="en">Precise elevation. Full stability.</span></p>
             <p class="text-sm text-brand-textMuted leading-relaxed">
-              מבנה אלומיניום עמיד, מתכוונן לגובה העיניים.
-              <br><br>
-              מסייע להתאמת מנח הצפייה ומאפשר אוורור יעיל וטוב יותר למחשב הנייד.
+              <span class="he">מבנה אלומיניום עמיד, מתכוונן לגובה העיניים.<br><br>מסייע להתאמת מנח הצפייה ומאפשר אוורור יעיל וטוב יותר למחשב הנייד.</span>
+              <span class="en">Durable aluminum build, adjustable to eye level.<br><br>Helps adjust your viewing position and allows better airflow for your laptop.</span>
             </p>
           </div>
 
-          <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-4 hover:border-brand-accent/50 transition-colors">
-            <div class="rounded-xl overflow-hidden border border-brand-border/50 bg-black/40 aspect-[4/3]">
-              <img src="20261012_094954.jpg" alt="כרית מתיחה צווארית ארגונומית מ-EVA" width="400" height="300" loading="lazy" class="w-full h-full object-cover">
-            </div>
-            <span class="text-xs font-mono text-blue-300">03 · הפוגה לצוואר</span>
-            <h3 class="text-xl font-bold text-white">כרית מתיחה צווארית (EVA)</h3>
-            <p class="text-sm font-semibold text-slate-300">הפוגה קצרה בין שעות הישיבה.</p>
+          <div class="card">
+            <div class="imgbox"><img src="20261012_094954.jpg" width="400" height="300" loading="lazy" class="w-full h-full object-cover"
+              alt="כרית מתיחה צווארית ארגונומית מ-EVA" data-he="כרית מתיחה צווארית ארגונומית מ-EVA" data-en="Ergonomic EVA neck stretcher"></div>
+            <span class="text-xs font-mono text-blue-300">03 · <span class="he">הפוגה לצוואר</span><span class="en">Neck relief</span></span>
+            <h3 class="text-xl font-bold text-white"><span class="he">כרית מתיחה צווארית (EVA)</span><span class="en">EVA neck stretcher</span></h3>
+            <p class="text-sm font-semibold text-slate-300"><span class="he">הפוגה קצרה בין שעות הישיבה.</span><span class="en">A short break between long hours of sitting.</span></p>
             <p class="text-sm text-brand-textMuted leading-relaxed">
-              תמיכה ארגונומית לקימור הטבעי של הצוואר.
-              <br><br>
-              עשויה לסייע בהרפיית שרירים ובתחושת הקלה לאחר ישיבה ממושכת. המוצר אינו מכשיר רפואי ואינו מיועד להחלפת ייעוץ מקצועי.
+              <span class="he">תמיכה ארגונומית לקימור הטבעי של הצוואר.<br><br>עשויה לסייע בהרפיית שרירים ובתחושת הקלה לאחר ישיבה ממושכת. המוצר אינו מכשיר רפואי ואינו מיועד להחלפת ייעוץ מקצועי.</span>
+              <span class="en">Ergonomic support for the natural curve of the neck.<br><br>May help relax muscles and ease discomfort after prolonged sitting. Not a medical device and not a substitute for professional advice.</span>
             </p>
           </div>
         </div>
-
         <p class="text-xs text-brand-textMuted text-center">
-          * הערכה מאגדת מוצרים של יצרנים שונים (כגון Baseus) ונמכרת כחבילה אחת.
+          <span class="he">* הערכה מאגדת מוצרים של יצרנים שונים (כגון Baseus) ונמכרת כחבילה אחת.</span>
+          <span class="en">* This bundle combines products from different manufacturers (such as Baseus) and is sold as one package.</span>
         </p>
       </div>
     </section>
 
-    <!-- How ordering works -->
-    <section id="how" class="max-w-5xl mx-auto px-6 py-20">
-      <div class="text-center space-y-3 mb-12">
-        <h2 class="text-3xl font-bold text-white">איך מזמינים</h2>
-        <p class="text-brand-textMuted">שלושה צעדים, הכול דרך וואטסאפ.</p>
-      </div>
-      <ol class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <li class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-2">
-          <span class="text-sm font-mono text-blue-300">שלב 1</span>
-          <h3 class="text-lg font-bold text-white">שולחים הודעה</h3>
-          <p class="text-sm text-brand-textMuted leading-relaxed">לוחצים על הכפתור וההודעה מוכנה מראש. בודקים מולנו שיש מקום במהדורה.</p>
-        </li>
-        <li class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-2">
-          <span class="text-sm font-mono text-blue-300">שלב 2</span>
-          <h3 class="text-lg font-bold text-white">מאשרים ומשלמים</h3>
-          <p class="text-sm text-brand-textMuted leading-relaxed">ההזמנה נקלטת אחרי אישור זמינות ותשלום מול נציג. תקבלו חשבונית או קבלה.</p>
-        </li>
-        <li class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-2">
-          <span class="text-sm font-mono text-blue-300">שלב 3</span>
-          <h3 class="text-lg font-bold text-white">מקבלים הביתה</h3>
-          <p class="text-sm text-brand-textMuted leading-relaxed">משלוח עד הבית, כלול במחיר, תוך 14–21 ימי עסקים מאישור ההזמנה והתשלום.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- Checkout CTA -->
-    <section id="checkout" class="max-w-4xl mx-auto px-6 pb-20 text-center">
+    <!-- Checkout -->
+    <section id="checkout" class="max-w-4xl mx-auto px-6 py-20 text-center">
       <div class="bg-gradient-to-b from-brand-card to-brand-bg border border-brand-border p-8 md:p-12 rounded-3xl shadow-2xl space-y-8">
-
         <div class="space-y-3">
-          <span class="text-xs font-bold text-blue-300 tracking-widest uppercase">הזמנה מוקדמת</span>
-          <h2 class="text-3xl sm:text-4xl font-black text-white">מהדורת השקה מוגבלת</h2>
+          <span class="tag"><span class="he">הזמנה מוקדמת</span><span class="en">Pre-order</span></span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white"><span class="he">מהדורת השקה מוגבלת</span><span class="en">Limited launch edition</span></h2>
         </div>
-
         <p class="text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
-          החבילה השלמה במחיר השקה של <span class="text-white font-bold underline decoration-brand-accent decoration-2">399 ₪</span>, כולל משלוח עד הבית.<br><br>
-          <span class="text-slate-200 font-semibold">המחיר שמור ל-50 הרוכשים הראשונים בלבד.</span>
+          <span class="he">החבילה השלמה במחיר השקה של <b class="text-white underline decoration-brand-accent decoration-2">399 ₪</b>, כולל משלוח עד הבית.<br><br><b class="text-slate-200">המחיר שמור ל-50 הרוכשים הראשונים בלבד.</b></span>
+          <span class="en">The complete bundle at a launch price of <b class="text-white underline decoration-brand-accent decoration-2">₪399</b>, including home delivery.<br><br><b class="text-slate-200">This price is reserved for the first 50 buyers only.</b></span>
         </p>
-
         <div class="max-w-md mx-auto space-y-4">
-          <a href="https://wa.me/972506770772?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%97%D7%91%D7%99%D7%9C%D7%AA%20%D7%94%D7%94%D7%A9%D7%A7%D7%94%20%D7%91-399%20%E2%82%AA"
-             target="_blank" rel="noopener"
-             class="block w-full bg-brand-accentHover hover:bg-blue-700 text-white font-bold text-xl py-4 rounded-xl transition-colors motion-reduce:transition-none shadow-xl shadow-brand-accent/20 focus:ring-2 focus:ring-white focus:outline-none">
-            שמור את מקומך בוואטסאפ
-          </a>
-          <p class="text-xs text-brand-textMuted">ההזמנה נקלטת לאחר אישור זמינות ותשלום מול נציג בוואטסאפ.</p>
+          <a class="wa btn text-xl" href="#" target="_blank" rel="noopener"><span class="he">שמור את מקומך בוואטסאפ</span><span class="en">Reserve your spot on WhatsApp</span></a>
+          <p class="text-xs text-brand-textMuted"><span class="he">ההזמנה נקלטת לאחר אישור זמינות ותשלום מול נציג בוואטסאפ.</span><span class="en">Your order is registered after availability and payment are confirmed with a representative on WhatsApp.</span></p>
         </div>
-
         <div class="pt-6 border-t border-brand-border/40 text-xs sm:text-sm text-brand-textMuted flex items-center justify-center gap-2">
           <span aria-hidden="true">🛡️</span>
-          <span><strong>החזר כספי מלא</strong> במקרה של עיכוב במסירת המשלוח. זכות ביטול בהתאם לחוק הגנת הצרכן. שירות ותמיכה בוואטסאפ ובמייל.</span>
+          <span class="he"><b>החזר כספי מלא</b> במקרה של עיכוב במסירת המשלוח. זכות ביטול בהתאם לחוק הגנת הצרכן.</span>
+          <span class="en"><b>Full refund</b> if delivery is delayed. Cancellation rights per Israeli Consumer Protection Law.</span>
         </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="max-w-3xl mx-auto px-6 pb-20">
-      <h2 class="text-3xl font-bold text-white text-center mb-10">שאלות נפוצות</h2>
-      <div class="space-y-3">
-        <details class="group bg-brand-card border border-brand-border rounded-xl p-5">
-          <summary class="cursor-pointer font-semibold text-white list-none flex justify-between items-center">
-            מתי מגיע המשלוח?
-            <span class="text-brand-textMuted group-open:rotate-45 transition-transform motion-reduce:transition-none" aria-hidden="true">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-brand-textMuted leading-relaxed">תוך 14–21 ימי עסקים מאישור ההזמנה והתשלום. המשלוח עד הבית וכלול במחיר.</p>
-        </details>
-        <details class="group bg-brand-card border border-brand-border rounded-xl p-5">
-          <summary class="cursor-pointer font-semibold text-white list-none flex justify-between items-center">
-            אפשר לבטל?
-            <span class="text-brand-textMuted group-open:rotate-45 transition-transform motion-reduce:transition-none" aria-hidden="true">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-brand-textMuted leading-relaxed">לפני שליחת המשלוח אפשר לבטל בכל עת ולקבל החזר מלא. אחרי קבלת המוצר חלים תנאי ביטול עסקה מרחוק לפי חוק הגנת הצרכן, כמפורט בתקנון.</p>
-        </details>
-        <details class="group bg-brand-card border border-brand-border rounded-xl p-5">
-          <summary class="cursor-pointer font-semibold text-white list-none flex justify-between items-center">
-            מה קורה אם המשלוח מתעכב?
-            <span class="text-brand-textMuted group-open:rotate-45 transition-transform motion-reduce:transition-none" aria-hidden="true">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-brand-textMuted leading-relaxed">אם המוצר לא נשלח במועד האספקה המשוער, אפשר לבטל ולקבל החזר כספי מלא תוך 7 ימי עסקים.</p>
-        </details>
-        <details class="group bg-brand-card border border-brand-border rounded-xl p-5">
-          <summary class="cursor-pointer font-semibold text-white list-none flex justify-between items-center">
-            אפשר לקנות רק מוצר אחד?
-            <span class="text-brand-textMuted group-open:rotate-45 transition-transform motion-reduce:transition-none" aria-hidden="true">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-brand-textMuted leading-relaxed">מחיר ההשקה הוא לחבילה השלמה בלבד. לשאלות נוספות אפשר לכתוב לנו בוואטסאפ.</p>
-        </details>
-        <details class="group bg-brand-card border border-brand-border rounded-xl p-5">
-          <summary class="cursor-pointer font-semibold text-white list-none flex justify-between items-center">
-            האם כרית המתיחה היא מוצר רפואי?
-            <span class="text-brand-textMuted group-open:rotate-45 transition-transform motion-reduce:transition-none" aria-hidden="true">+</span>
-          </summary>
-          <p class="mt-3 text-sm text-brand-textMuted leading-relaxed">לא. המוצר אינו מכשיר רפואי ואינו מחליף ייעוץ מקצועי. במקרה של כאבים או בעיה רפואית יש לפנות לרופא.</p>
-        </details>
       </div>
     </section>
 
     <!-- Terms -->
     <section id="terms" class="max-w-4xl mx-auto px-6 py-8 text-sm text-slate-300 border-t border-brand-border/40">
-      <div class="space-y-4 text-right leading-relaxed">
+      <div class="he term">
         <h3 class="font-bold text-white text-base">תקנון, תנאי הזמנה מוקדמת (Pre-Order), מדיניות ביטולים ופרטיות</h3>
-
-        <p><strong>מהות העסקה:</strong> ההזמנה היא רכישה מוקדמת של חבילת מוצרים הכוללת תאורת מסך, מעמד אלומיניום וכרית מתיחה צווארית. המוצרים נשלחים לאחר אישור ההזמנה והתשלום מול הנציג.</p>
-
-        <p><strong>אספקה ולוחות זמנים:</strong> משלוח עד הבית, כלול במחיר. מועד האספקה המשוער: תוך 14–21 ימי עסקים מאישור ההזמנה והתשלום בפועל.</p>
-
-        <p><strong>עיכוב באספקה:</strong> אם המוצר לא נשלח במועד האספקה המשוער, תעמוד ללקוח הזכות לבטל את ההזמנה ולקבל החזר כספי מלא תוך 7 ימי עסקים.</p>
-
-        <p><strong>ביטול לפני משלוח:</strong> ניתן לבטל את ההזמנה בכל עת לפני שליחת המשלוח ולקבל החזר כספי מלא.</p>
-
-        <p><strong>ביטול לאחר קבלת המוצר (סעיף 14ג לחוק הגנת הצרכן):</strong> ניתן לבטל עסקה מרחוק תוך 14 ימים מיום קבלת המוצר או מיום קבלת מסמך הגילוי (המאוחר מביניהם), ובלבד שלא נפגע ערכו של המוצר. במקרה של ביטול שלא עקב פגם או אי-התאמה, ייגבו דמי ביטול בשיעור של עד 5% ממחיר העסקה או 100 ₪ (הנמוך מביניהם), והחזרת המוצר תהיה באחריות הלקוח.</p>
-
-        <p><strong>מגבלת כמות וסגירת מהדורה:</strong> המחיר המוצע שמור ל-50 ההזמנות הראשונות שאושרו ושולמו. עם מימוש הכמות תיסגר המהדורה.</p>
-
-        <p><strong>מדיניות פרטיות:</strong> פרטי הלקוח (שם, טלפון וכתובת למשלוח) נאספים לצורך עיבוד ההזמנה, הנפקת חשבונית ומשלוח המוצרים בלבד, ולא יועברו לצד שלישי מלבד חברת המשלוחים.</p>
-
-        <p><strong>חשבונית:</strong> לכל רכישה תונפק חשבונית או קבלה כחוק.</p>
-
-        <p><strong>פרטי העוסק ויצירת קשר:</strong><br>
-          • <strong>שם העסק:</strong> ברק הפקה ותוכן<br>
-          • <strong>מספר עוסק מורשה / ח.פ.:</strong> 046259859<br>
-          • <strong>כתובת למכתבים:</strong> אילנות 5, חיפה<br>
-          • <strong>ליצירת קשר:</strong> וואטסאפ: <a href="https://wa.me/972506770772" class="underline hover:text-white" dir="ltr">050-6770772</a> | דוא"ל: <a href="mailto:barak.keynan@gmail.com" class="underline hover:text-white" dir="ltr">barak.keynan@gmail.com</a>
-        </p>
+        <p><b>מהות העסקה:</b> רכישה מוקדמת של חבילת מוצרים הכוללת תאורת מסך, מעמד אלומיניום וכרית מתיחה צווארית. המוצרים נשלחים לאחר אישור ההזמנה והתשלום מול הנציג.</p>
+        <p><b>אספקה:</b> משלוח עד הבית, כלול במחיר, תוך 14–21 ימי עסקים מאישור ההזמנה והתשלום בפועל.</p>
+        <p><b>עיכוב באספקה:</b> אם המוצר לא נשלח במועד האספקה המשוער, ניתן לבטל את ההזמנה ולקבל החזר כספי מלא תוך 7 ימי עסקים.</p>
+        <p><b>ביטול לפני משלוח:</b> ניתן לבטל בכל עת לפני שליחת המשלוח ולקבל החזר כספי מלא.</p>
+        <p><b>ביטול לאחר קבלת המוצר (סעיף 14ג לחוק הגנת הצרכן):</b> ניתן לבטל עסקה מרחוק תוך 14 ימים מיום קבלת המוצר או מסמך הגילוי (המאוחר מביניהם), ובלבד שלא נפגע ערכו של המוצר. בביטול שלא עקב פגם או אי-התאמה ייגבו דמי ביטול של עד 5% ממחיר העסקה או 100 ₪ (הנמוך מביניהם), והחזרת המוצר באחריות הלקוח.</p>
+        <p><b>מגבלת כמות:</b> המחיר שמור ל-50 ההזמנות הראשונות שאושרו ושולמו. עם מימוש הכמות תיסגר המהדורה.</p>
+        <p><b>פרטיות:</b> פרטי הלקוח (שם, טלפון וכתובת) נאספים לצורך עיבוד ההזמנה, הנפקת חשבונית ומשלוח בלבד, ולא יועברו לצד שלישי מלבד חברת המשלוחים.</p>
+        <p><b>חשבונית:</b> לכל רכישה תונפק חשבונית או קבלה כחוק.</p>
+        <p><b>פרטי העוסק:</b> ברק הפקה ותוכן · עוסק מורשה / ח.פ. 046259859 · אילנות 5, חיפה · וואטסאפ <a href="https://wa.me/972506770772" dir="ltr" class="underline hover:text-white">050-6770772</a> · דוא"ל <a href="mailto:barak.keynan@gmail.com" dir="ltr" class="underline hover:text-white">barak.keynan@gmail.com</a></p>
+      </div>
+      <div class="en term">
+        <h3 class="font-bold text-white text-base">Terms, pre-order conditions, cancellation and privacy policy</h3>
+        <p><b>Nature of the transaction:</b> A pre-order purchase of a bundle including a monitor light, an aluminum stand and a neck stretcher. Products are shipped after the order and payment are confirmed with the representative.</p>
+        <p><b>Delivery:</b> Home delivery, included in the price, within 14–21 business days after order and actual payment confirmation.</p>
+        <p><b>Delivery delay:</b> If the product is not shipped by the estimated delivery date, you may cancel the order and receive a full refund within 7 business days.</p>
+        <p><b>Cancellation before shipping:</b> You may cancel at any time before the shipment is sent and receive a full refund.</p>
+        <p><b>Cancellation after receipt (Section 14C, Israeli Consumer Protection Law):</b> A distance transaction may be cancelled within 14 days of receiving the product or the disclosure document (whichever is later), provided the product's value has not been impaired. If cancelled for reasons other than a defect or non-conformity, a cancellation fee of up to 5% of the price or ₪100 (whichever is lower) applies, and return shipping is the customer's responsibility.</p>
+        <p><b>Quantity limit:</b> The price is reserved for the first 50 orders that are confirmed and paid. Once reached, the edition closes.</p>
+        <p><b>Privacy:</b> Customer details (name, phone, address) are collected solely to process the order, issue an invoice and ship the products, and are not shared with third parties other than the courier.</p>
+        <p><b>Invoice:</b> A tax invoice or receipt is issued for every purchase as required by law.</p>
+        <p><b>Business details:</b> Barak Production &amp; Content (ברק הפקה ותוכן) · Licensed dealer / company no. 046259859 · 5 Ilanot St., Haifa, Israel · WhatsApp <a href="https://wa.me/972506770772" dir="ltr" class="underline hover:text-white">050-6770772</a> · Email <a href="mailto:barak.keynan@gmail.com" dir="ltr" class="underline hover:text-white">barak.keynan@gmail.com</a></p>
       </div>
     </section>
-
   </main>
 
   <footer class="border-t border-brand-border/40 py-8 px-6 text-center text-xs text-slate-400 space-y-2">
-    <p>© 2026 ברק הפקה ותוכן · עוסק מורשה 046259859 · אילנות 5, חיפה</p>
-    <p>התמונות להמחשה בלבד | ט.ל.ח</p>
+    <p>© 2026 ברק הפקה ותוכן · 046259859</p>
+    <p><span class="he">התמונות להמחשה בלבד | ט.ל.ח</span><span class="en">Images are for illustration only. E&amp;OE.</span></p>
   </footer>
-
-  <!-- Sticky mobile CTA -->
-  <div class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-brand-bg/95 backdrop-blur border-t border-brand-border px-4 pt-3" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));">
-    <a href="https://wa.me/972506770772?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%97%D7%91%D7%99%D7%9C%D7%AA%20%D7%94%D7%94%D7%A9%D7%A7%D7%94%20%D7%91-399%20%E2%82%AA"
-       target="_blank" rel="noopener"
-       class="flex items-center justify-between w-full bg-brand-accentHover text-white font-bold rounded-xl px-5 py-3 focus:ring-2 focus:ring-white focus:outline-none">
-      <span>הזמנה בוואטסאפ</span>
-      <span>399 ₪</span>
-    </a>
   </div>
 
+  <script>
+    var WA = {
+      he: 'היי, אני רוצה לשריין את חבילת ההשקה ב-399 ₪',
+      en: "Hi, I'd like to reserve the launch bundle for ₪399"
+    };
+    var META = {
+      he: { title: 'Dark Mode Workspace | חבילת תחנת עבודה ארגונומית', desc: 'חבילת תחנת עבודה ארגונומית: תאורת מסך Baseus, מעמד אלומיניום וכרית מתיחה EVA. מחיר השקה 399 ₪ כולל משלוח ל-50 הרוכשים הראשונים.' },
+      en: { title: 'Dark Mode Workspace | Ergonomic Desk Bundle', desc: 'Ergonomic workstation bundle: Baseus monitor light, aluminum laptop stand and EVA neck stretcher. Launch price ₪399 incl. delivery for the first 50 buyers.' }
+    };
+
+    function applyLang(l) {
+      var d = document.documentElement;
+      d.setAttribute('data-lang', l);
+      d.lang = l;
+      d.dir = l === 'en' ? 'ltr' : 'rtl';
+      document.title = META[l].title;
+      var m = document.querySelector('meta[name="description"]');
+      if (m) m.setAttribute('content', META[l].desc);
+      document.getElementById('lang-btn-text').textContent = l === 'en' ? 'עב' : 'EN';
+      document.querySelectorAll('a.wa').forEach(function (a) {
+        a.href = 'https://wa.me/972506770772?text=' + encodeURIComponent(WA[l]);
+      });
+      document.querySelectorAll('img[data-he]').forEach(function (img) {
+        img.alt = img.getAttribute('data-' + l);
+      });
+    }
+
+    function toggleLanguage() {
+      var next = document.documentElement.getAttribute('data-lang') === 'en' ? 'he' : 'en';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      var page = document.getElementById('page');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { applyLang(next); return; }
+      page.classList.add('fading');
+      setTimeout(function () {
+        applyLang(next);
+        requestAnimationFrame(function () { page.classList.remove('fading'); });
+      }, 180);
+    }
+
+    applyLang(document.documentElement.getAttribute('data-lang'));
+  </script>
 </body>
 </html>
