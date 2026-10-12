@@ -33,28 +33,31 @@
   <script>
     tailwind.config = { theme: { extend: {
       fontFamily: { sans: ['Heebo', 'sans-serif'] },
-      colors: { brand: { bg: '#0B0F17', card: '#161C28', border: '#2A3447', accent: '#3B82F6', accentHover: '#2563EB', textMuted: '#94A3B8' } }
+      colors: { brand: { bg: '#070A14', card: '#111827', border: '#2B3350', accent: '#8B5CF6', accentHover: '#7C3AED', textMuted: '#A5B0C8' } }
     } } }
   </script>
 
   <style>
     html[data-lang="he"] .en { display: none !important; }
     html[data-lang="en"] .he { display: none !important; }
+    body { background-image: radial-gradient(60rem 40rem at 85% -5%, rgba(139,92,246,.28), transparent 60%), radial-gradient(50rem 35rem at 0% 25%, rgba(34,211,238,.16), transparent 60%), radial-gradient(45rem 30rem at 100% 80%, rgba(244,114,182,.12), transparent 60%); background-attachment: fixed; }
+    .glow { position:absolute; inset:-1.5rem; background: conic-gradient(from 200deg, #8B5CF6, #22D3EE, #F472B6, #8B5CF6); filter: blur(42px); opacity:.45; border-radius:2rem; z-index:0; }
+    .frame { position:relative; z-index:1; padding:2px; border-radius:1.25rem; background: linear-gradient(135deg, #8B5CF6, #22D3EE, #F472B6); }
     #page { transition: opacity .18s ease; }
     #page.fading { opacity: 0; }
     @media (prefers-reduced-motion: reduce) { #page { transition: none; } }
   </style>
   <style type="text/tailwindcss">
     @layer components {
-      .card { @apply bg-brand-card border border-brand-border rounded-2xl p-6 space-y-4 hover:border-brand-accent/50 transition-colors; }
+      .card { @apply bg-brand-card/80 border border-brand-border rounded-2xl p-6 space-y-4 hover:border-cyan-400/60 hover:shadow-xl hover:shadow-violet-500/20 transition; }
       .imgbox { @apply rounded-xl overflow-hidden border border-brand-border/50 bg-black/40 aspect-[4/3]; }
-      .btn { @apply block w-full text-center bg-brand-accentHover hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-brand-accent/25 focus:ring-2 focus:ring-white focus:outline-none; }
-      .tag { @apply text-xs font-bold text-blue-300 tracking-widest uppercase; }
+      .btn { @apply block w-full text-center bg-gradient-to-l from-violet-600 via-fuchsia-500 to-cyan-400 hover:brightness-110 text-white font-extrabold py-4 rounded-xl transition shadow-lg shadow-fuchsia-500/30 focus:ring-2 focus:ring-white focus:outline-none; }
+      .tag { @apply text-xs font-bold text-cyan-300 tracking-widest uppercase; }
       .term { @apply space-y-3 leading-relaxed; }
     }
   </style>
 </head>
-<body class="bg-brand-bg text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-accent selection:text-white">
+<body class="bg-brand-bg text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-violet-500 selection:text-white">
 
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:start-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded">
     <span class="he">דלג לתוכן הראשי</span><span class="en">Skip to main content</span>
@@ -80,28 +83,28 @@
     <!-- Hero -->
     <section class="max-w-6xl mx-auto px-6 pt-12 pb-16 md:pt-20 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex bg-brand-accent/10 border border-brand-accent/30 text-blue-300 text-xs font-semibold px-3 py-1.5 rounded-full">
+        <div class="inline-flex bg-brand-accent/10 border border-brand-accent/30 text-cyan-300 text-xs font-semibold px-3 py-1.5 rounded-full">
           <span class="he">מהדורה מוגבלת ל-50 רוכשים ראשונים</span><span class="en">Limited edition: first 50 buyers</span>
         </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
-          <span class="he">שקט ויזואלי.<br>מקסימום מיקוד.</span><span class="en">Visual calm.<br>Maximum focus.</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight pb-1 bg-clip-text text-transparent bg-gradient-to-l from-white via-cyan-200 to-fuchsia-300">
+          <span class="he">הצוואר שלך עובד כל היום.<br>תן לו שדרוג.</span><span class="en">Your neck works all day.<br>Give it an upgrade.</span>
         </h1>
         <p class="text-lg sm:text-xl text-brand-textMuted font-light leading-relaxed max-w-2xl">
-          <span class="he">תאורה ממוקדת, הגבהה מדויקת ותמיכה לצוואר. הכול בחבילת השקה אחת שנועדה לסייע ביצירת סביבת עבודה נוחה וממוקדת.</span>
-          <span class="en">Focused lighting, precise elevation and neck support. All in one launch bundle designed to help create a comfortable, focused workspace.</span>
+          <span class="he">עמדת עבודה נוחה יותר בשלושה צעדים פשוטים: מסך בגובה העיניים, תאורה ממוקדת והפוגה קצרה לצוואר. כשנוח לך, קל יותר להתרכז.</span>
+          <span class="en">A more comfortable workspace in three simple steps: a screen at eye level, focused light and a short neck break. When you are comfortable, it is easier to focus.</span>
         </p>
         <div class="pt-4 space-y-3">
           <a class="wa btn sm:inline-block sm:w-auto sm:px-8 text-lg" href="#" target="_blank" rel="noopener">
             <span class="he">הזמן מראש בוואטסאפ</span><span class="en">Pre-order via WhatsApp</span>
           </a>
           <div class="text-sm text-brand-textMuted font-medium space-y-1">
-            <p class="text-slate-200 font-semibold"><span class="he">מחיר השקה: 399 ₪ כולל משלוח · 50 יחידות בלבד</span><span class="en">Launch price: ₪399 (ILS) incl. delivery · 50 units only</span></p>
+            <p class="flex items-baseline gap-3"><span class="text-5xl font-black text-amber-300">₪399</span><span class="text-slate-200 font-semibold"><span class="he">מחיר השקה · משלוח כלול · 50 יחידות בלבד</span><span class="en">Launch price · delivery included · 50 units only</span></span></p>
             <p class="text-xs"><span class="he">משלוח צפוי: תוך 14–21 ימי עסקים מאישור ההזמנה והתשלום</span><span class="en">Estimated delivery: 14–21 business days after order and payment confirmation</span></p>
           </div>
         </div>
       </div>
       <div class="lg:col-span-5">
-        <div class="relative rounded-2xl overflow-hidden border border-brand-border bg-brand-card shadow-2xl">
+        <div class="relative"><div class="glow" aria-hidden="true"></div><div class="frame"><div class="relative rounded-[1.1rem] overflow-hidden bg-brand-card">
           <img src="20261012_095635.jpg" width="600" height="400" fetchpriority="high" class="w-full h-auto object-cover"
                alt="חבילת תחנת העבודה: תאורת מסך, מעמד אלומיניום וכרית מתיחה צווארית"
                data-he="חבילת תחנת העבודה: תאורת מסך, מעמד אלומיניום וכרית מתיחה צווארית"
@@ -110,23 +113,59 @@
           <div class="absolute bottom-4 start-4 bg-brand-bg/90 backdrop-blur border border-brand-border px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300">
             <span class="he">תחנת עבודה מודרנית מלאה</span><span class="en">A complete modern workstation</span>
           </div>
-        </div>
+          <div class="absolute top-4 end-4 bg-amber-300 text-black font-black text-sm px-3 py-1.5 rounded-full shadow-lg rotate-3">3 <span class="he">מוצרים · מחיר אחד</span><span class="en">products · one price</span></div>
+        </div></div></div>
       </div>
     </section>
 
+    <section id="problem" class="max-w-6xl mx-auto px-6 pb-20">
+      <div class="text-center space-y-3 max-w-2xl mx-auto mb-10">
+        <h2 class="text-3xl sm:text-4xl font-black text-white"><span class="he">מכירים את זה?</span><span class="en">Sound familiar?</span></h2>
+        <p class="text-brand-textMuted text-lg"><span class="he">אחרי כמה שעות מול המסך, הגוף מתחיל לשלם את המחיר.</span><span class="en">After a few hours at the screen, your body starts paying the price.</span></p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card">
+          <div class="text-4xl" aria-hidden="true">🪑</div>
+          <h3 class="text-xl font-bold text-white"><span class="he">הגב מתכופף, הצוואר נמשך קדימה</span><span class="en">Back hunched, neck pulled forward</span></h3>
+          <p class="text-sm text-brand-textMuted leading-relaxed"><span class="he">מחשב נייד נמוך מושך את הראש מטה והכתפיים עולות. עד סוף היום הכול תפוס.</span><span class="en">A low laptop pulls your head down and lifts your shoulders. By the end of the day everything feels tight.</span></p>
+          <p class="text-sm font-semibold text-cyan-300">→ <span class="he">המעמד מרים את המסך לגובה העיניים.</span><span class="en">The stand lifts the screen to eye level.</span></p>
+        </div>
+        <div class="card">
+          <div class="text-4xl" aria-hidden="true">👀</div>
+          <h3 class="text-xl font-bold text-white"><span class="he">העיניים עייפות בערב</span><span class="en">Tired eyes in the evening</span></h3>
+          <p class="text-sm text-brand-textMuted leading-relaxed"><span class="he">מסך בהיר בחדר חשוך, והשתקפויות שדורשות עוד מאמץ מהעיניים.</span><span class="en">A bright screen in a dark room, plus reflections that make your eyes work harder.</span></p>
+          <p class="text-sm font-semibold text-cyan-300">→ <span class="he">התאורה מאירה את המקלדת והשולחן, לא את המסך.</span><span class="en">The light targets your keyboard and desk, not the screen.</span></p>
+        </div>
+        <div class="card">
+          <div class="text-4xl" aria-hidden="true">🎯</div>
+          <h3 class="text-xl font-bold text-white"><span class="he">הריכוז נשחק</span><span class="en">Focus wears down</span></h3>
+          <p class="text-sm text-brand-textMuted leading-relaxed"><span class="he">כשלא נוח, קשה להישאר חד. הפרטים הקטנים בכל פרויקט הם הראשונים שנופלים.</span><span class="en">When you are uncomfortable it is hard to stay sharp, and the small details of any project are the first to slip.</span></p>
+          <p class="text-sm font-semibold text-cyan-300">→ <span class="he">הפוגה קצרה לצוואר בין משימות.</span><span class="en">A short neck break between tasks.</span></p>
+        </div>
+      </div>
+      <p class="max-w-3xl mx-auto text-center text-lg text-slate-200 leading-relaxed mt-10">
+        <span class="he">ישיבה ממושכת בתנוחה לא נוחה צוברת עומס עם הזמן, והריכוז והפרודוקטיביות מרגישים את זה. אין צורך בשינוי דרסטי. <b class="text-white">שלושה שינויים קטנים בעמדת העבודה</b> יכולים לעשות הבדל בנוחות היומיומית.</span>
+        <span class="en">Long hours in an awkward posture add up over time, and focus and productivity feel it too. You do not need a drastic change. <b class="text-white">Three small changes to your workspace</b> can make everyday comfort noticeably better.</span>
+      </p>
+      <p class="max-w-3xl mx-auto text-center text-xs text-brand-textMuted mt-4">
+        <span class="he">המוצרים נועדו לנוחות ואינם מכשור רפואי או תחליף לייעוץ מקצועי. אם יש לך כאבים מתמשכים, מיגרנות או תסמינים אחרים, פנה לרופא.</span>
+        <span class="en">These products are for comfort only, not medical devices or a substitute for professional advice. If you have persistent pain, migraines or other symptoms, please see a doctor.</span>
+      </p>
+    </section>
+
     <!-- Bundle -->
-    <section id="bundle" class="border-t border-brand-border/60 bg-brand-card/30 py-20 px-6">
+    <section id="bundle" class="border-t border-violet-400/20 bg-gradient-to-b from-violet-950/40 to-transparent py-20 px-6">
       <div class="max-w-6xl mx-auto space-y-16">
         <div class="text-center space-y-3 max-w-2xl mx-auto">
           <span class="tag">The Bundle Experience</span>
-          <h2 class="text-3xl font-bold text-white"><span class="he">שלושת היסודות</span><span class="en">The three essentials</span></h2>
+          <h2 class="text-3xl font-bold text-white"><span class="he">הפתרון: שלושה צעדים, חבילה אחת</span><span class="en">The solution: three steps, one bundle</span></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           <div class="card">
             <div class="imgbox"><img src="20261012_091107.jpg" width="400" height="300" loading="lazy" class="w-full h-full object-cover"
               alt="מנורת מסך Baseus i-Wok" data-he="מנורת מסך Baseus i-Wok" data-en="Baseus i-Wok monitor light"></div>
-            <span class="text-xs font-mono text-blue-300">01 · <span class="he">תאורת מסך</span><span class="en">Monitor light</span></span>
+            <span class="text-xs font-mono text-cyan-300">01 · <span class="he">תאורת מסך</span><span class="en">Monitor light</span></span>
             <h3 class="text-xl font-bold text-white">Baseus i-Wok</h3>
             <p class="text-sm font-semibold text-slate-300"><span class="he">תאורה ממוקדת ונעימה לעבודה בשעות החשוכות.</span><span class="en">Focused, pleasant light for working after dark.</span></p>
             <p class="text-sm text-brand-textMuted leading-relaxed">
@@ -138,7 +177,7 @@
           <div class="card">
             <div class="imgbox"><img src="20261012_092411.jpg" width="400" height="300" loading="lazy" class="w-full h-full object-cover"
               alt="מעמד אלומיניום מתכוונן Z-Type למחשב נייד" data-he="מעמד אלומיניום מתכוונן Z-Type למחשב נייד" data-en="Adjustable Z-Type aluminum laptop stand"></div>
-            <span class="text-xs font-mono text-blue-300">02 · <span class="he">מעמד אלומיניום</span><span class="en">Aluminum stand</span></span>
+            <span class="text-xs font-mono text-cyan-300">02 · <span class="he">מעמד אלומיניום</span><span class="en">Aluminum stand</span></span>
             <h3 class="text-xl font-bold text-white">Z-Type Ergonomics</h3>
             <p class="text-sm font-semibold text-slate-300"><span class="he">הגבהה מדויקת. יציבות מלאה.</span><span class="en">Precise elevation. Full stability.</span></p>
             <p class="text-sm text-brand-textMuted leading-relaxed">
@@ -150,7 +189,7 @@
           <div class="card">
             <div class="imgbox"><img src="20261012_094954.jpg" width="400" height="300" loading="lazy" class="w-full h-full object-cover"
               alt="כרית מתיחה צווארית ארגונומית מ-EVA" data-he="כרית מתיחה צווארית ארגונומית מ-EVA" data-en="Ergonomic EVA neck stretcher"></div>
-            <span class="text-xs font-mono text-blue-300">03 · <span class="he">הפוגה לצוואר</span><span class="en">Neck relief</span></span>
+            <span class="text-xs font-mono text-cyan-300">03 · <span class="he">הפוגה לצוואר</span><span class="en">Neck relief</span></span>
             <h3 class="text-xl font-bold text-white"><span class="he">כרית מתיחה צווארית (EVA)</span><span class="en">EVA neck stretcher</span></h3>
             <p class="text-sm font-semibold text-slate-300"><span class="he">הפוגה קצרה בין שעות הישיבה.</span><span class="en">A short break between long hours of sitting.</span></p>
             <p class="text-sm text-brand-textMuted leading-relaxed">
@@ -168,14 +207,14 @@
 
     <!-- Checkout -->
     <section id="checkout" class="max-w-4xl mx-auto px-6 py-20 text-center">
-      <div class="bg-gradient-to-b from-brand-card to-brand-bg border border-brand-border p-8 md:p-12 rounded-3xl shadow-2xl space-y-8">
+      <div class="bg-gradient-to-br from-violet-900/50 via-brand-card to-cyan-900/30 border border-violet-400/30 p-8 md:p-12 rounded-3xl shadow-2xl shadow-violet-500/20 space-y-8">
         <div class="space-y-3">
           <span class="tag"><span class="he">הזמנה מוקדמת</span><span class="en">Pre-order</span></span>
           <h2 class="text-3xl sm:text-4xl font-black text-white"><span class="he">מהדורת השקה מוגבלת</span><span class="en">Limited launch edition</span></h2>
         </div>
         <p class="text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
-          <span class="he">החבילה השלמה במחיר השקה של <b class="text-white underline decoration-brand-accent decoration-2">399 ₪</b>, כולל משלוח עד הבית.<br><br><b class="text-slate-200">המחיר שמור ל-50 הרוכשים הראשונים בלבד.</b></span>
-          <span class="en">The complete bundle at a launch price of <b class="text-white underline decoration-brand-accent decoration-2">₪399</b>, including home delivery.<br><br><b class="text-slate-200">This price is reserved for the first 50 buyers only.</b></span>
+          <span class="he">החבילה השלמה במחיר השקה של <b class="text-white text-amber-300 decoration-transparent">399 ₪</b>, כולל משלוח עד הבית.<br><br><b class="text-slate-200">המחיר שמור ל-50 הרוכשים הראשונים בלבד.</b></span>
+          <span class="en">The complete bundle at a launch price of <b class="text-white text-amber-300 decoration-transparent">₪399</b>, including home delivery.<br><br><b class="text-slate-200">This price is reserved for the first 50 buyers only.</b></span>
         </p>
         <div class="max-w-md mx-auto space-y-4">
           <a class="wa btn text-xl" href="#" target="_blank" rel="noopener"><span class="he">שמור את מקומך בוואטסאפ</span><span class="en">Reserve your spot on WhatsApp</span></a>
